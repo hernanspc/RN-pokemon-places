@@ -3,7 +3,7 @@ import { Button, StatusBar, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import AuthStack from "./AuthStack";
-import Drawer from "./Drawer";
+// import Drawer from "./Drawer";
 import auth from '@react-native-firebase/auth';
 import { setUserData, signIn } from "../features/auth/auth";
 

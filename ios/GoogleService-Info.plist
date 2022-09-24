@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1076046321611-jfpk32941r7aom0fmdsc02otj4ld593s.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1076046321611-jfpk32941r7aom0fmdsc02otj4ld593s</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1076046321611-v4puualltfcps87mv1qrvbivnmn2gjbk.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDhltTst8MTvKSXkR7T4ZyZxiA4giuN9hY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1076046321611</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.AppIndicadores</string>
+	<key>PROJECT_ID</key>
+	<string>pokemon-app-8acea</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pokemon-app-8acea.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1076046321611:ios:cd4007d7749812b00c884e</string>
+</dict>
+</plist>
