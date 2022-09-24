@@ -1,4 +1,4 @@
-package com.appindicadores.newarchitecture;
+package com.pokemon.hernanpormachi.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.appindicadores.BuildConfig;
-import com.appindicadores.newarchitecture.components.MainComponentsRegistry;
-import com.appindicadores.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.pokemon.hernanpormachi.BuildConfig;
+import com.pokemon.hernanpormachi.newarchitecture.components.MainComponentsRegistry;
+import com.pokemon.hernanpormachi.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

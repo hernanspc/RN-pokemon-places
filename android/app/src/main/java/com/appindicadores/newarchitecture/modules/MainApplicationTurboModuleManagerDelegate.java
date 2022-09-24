@@ -1,4 +1,4 @@
-package com.appindicadores.newarchitecture.modules;
+package com.pokemon.hernanpormachi.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
