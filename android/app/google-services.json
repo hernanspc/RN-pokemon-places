@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1076046321611-v4puualltfcps87mv1qrvbivnmn2gjbk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pokemon.hernanpormachi",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
           "client_id": "1076046321611-09449lp6fhfd3gpslodmju6uioc143e5.apps.googleusercontent.com",
           "client_type": 3
         }
