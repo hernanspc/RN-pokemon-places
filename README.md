@@ -1,5 +1,5 @@
-# Indicadores Financieros
-Este repositorio corresponde a la versión nativa para la app Indicadores Financieros, para las plataformas iOS y Android.
+# Pokemon Places
+Este repositorio corresponde a la versión nativa para la app Pokemon, para las plataformas iOS y Android.
 
 ## Comenzando 🚀
 
@@ -17,7 +17,7 @@ Este repositorio corresponde a la versión nativa para la app Indicadores Financ
 **Clonar repositorio**
 
 ```bash
-git clone https://github.com/hernanspc/IndicatorBank-ReactNative.git
+# git clone https://github.com/hernanspc/IndicatorBank-ReactNative.git
 ```
 
 
@@ -26,7 +26,7 @@ git clone https://github.com/hernanspc/IndicatorBank-ReactNative.git
 Instale las dependencias y devDependencies e inicie el servidor.
 
 ```bash
-cd IndicadoresApp
+cd RN-pokemon-places
 yarn install
 ```
 
@@ -61,39 +61,4 @@ pod install
     
 ## Descargá la App 📎
 
-<!-- ### Links de Descarga -->
-| Ambiente        | Android                                                                                                                                      | iOS                                                                                                                                 |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `Produccion`   | [LINK ANDROID](https://install.appcenter.ms/users/iphone1198-icloud.com/apps/appindicadorfinanciero/distribution_groups/todo%20el%20mundo)  | [LINK IOS]() |
- 
-
-
-
-## ScreenShot 
-
-- Pure Component
-
-<p style={{padding:10}} align="center">
-<img src="https://github.com/hernanspc/IndicatorBank-ReactNative/blob/main/src/assets/screenshots/pure_c.png" width="600">
-</p>
-
-<p style={{padding:10}} align="center">
-<img src="https://raw.githubusercontent.com/hernanspc/IndicatorBank-ReactNative/main/src/assets/screenshots/page0.png" width="300">
-<img src="https://github.com/hernanspc/IndicatorBank-ReactNative/blob/main/src/assets/screenshots/page0android.png?raw=true" width="300">
-
-</p>
-
-<p style={{padding:10}} align="center">
-<img src="https://raw.githubusercontent.com/hernanspc/IndicatorBank-ReactNative/main/src/assets/screenshots/page2.png" width="400">
-<img src="https://github.com/hernanspc/IndicatorBank-ReactNative/blob/main/src/assets/screenshots/page1.png?raw=true" width="400">
-</p>
-
-<p style={{padding:10}} align="center">
-<img src="https://raw.githubusercontent.com/hernanspc/IndicatorBank-ReactNative/main/src/assets/screenshots/page5.png" width="400">
-</p>
-
-<p style={{padding:10}} align="center">
-<img src="https://raw.githubusercontent.com/hernanspc/IndicatorBank-ReactNative/main/src/assets/screenshots/page4.png" width="500">
-<img src="https://raw.githubusercontent.com/hernanspc/IndicatorBank-ReactNative/main/src/assets/screenshots/page3.png" width="500">
-</p>
  
