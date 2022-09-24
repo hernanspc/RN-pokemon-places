@@ -14,9 +14,9 @@ export function RootNavigator() {
     const onAuthStateChanged = (user) => {
         console.log('xxx', user)
 
-        // dispatch(
-        //     setUserData(user)
-        // );
+        dispatch(
+            setUserData(JSON.stringify(user))
+        );
 
         dispatch(
             signIn(user?.email)
