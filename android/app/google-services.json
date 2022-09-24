@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1076046321611",
+    "project_id": "pokemon-app-8acea",
+    "storage_bucket": "pokemon-app-8acea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1076046321611:android:18ad94337fea8bb20c884e",
+        "android_client_info": {
+          "package_name": "com.pokemon.hernanpormachi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1076046321611-09449lp6fhfd3gpslodmju6uioc143e5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp5u_1HRaISSvxm2gkAjbIHkI8d94lKlY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1076046321611-09449lp6fhfd3gpslodmju6uioc143e5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
