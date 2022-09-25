@@ -44,13 +44,9 @@ const ListRegion = ({ data, opacity, scale }) => {
                     marginRight: SPACING / 2,
                 }}
             />
-            <View >
+            <View style={styles.wrapperIcon} >
                 <Text style={{ fontSize: 22, fontWeight: "700" }} >
                     {name}
-                </Text>
-
-                <Text style={{ fontSize: 14, opacityy: .8, color: "#0099cc" }} >
-                    {"DESC"}
                 </Text>
             </View>
         </Animated.View>
