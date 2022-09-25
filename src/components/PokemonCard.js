@@ -17,13 +17,10 @@ export const PokemonCard = ({ pokemon }) => {
 
         ImageColors.getColors(pokemon.image, { fallback: 'grey' })
             .then(colors => {
-
                 if (!isMounted.current) return;
-
                 (colors.platform === 'android')
                     ? setBgColor(colors.dominant || 'grey')
                     : setBgColor(colors.background || 'grey')
-
             });
 
         return () => {
@@ -33,9 +30,8 @@ export const PokemonCard = ({ pokemon }) => {
     }, [])
 
     const handlePressPokemon = () => {
-        console.log('select pokemon')
+        console.log('select pokemon', pokemon.id)
     }
-
 
     return (
         <TouchableOpacity

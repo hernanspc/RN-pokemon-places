@@ -28,7 +28,6 @@ const ListRegion = ({ data, }, key) => {
     return (
         <TouchableOpacity
             onPress={() => handlePress(data)}
-
         >
 
             <View style={{
