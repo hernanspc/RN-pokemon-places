@@ -9,16 +9,15 @@ export const useGetRegions = () => {
     const getList = async () => {
         const { data } = await axios.get(`https://pokeapi.co/api/v2/region`)
         const { results } = data;
-        setSimpleRegions(results)
-        // const response = {
-        //     // ...data,
-        //     id: id,
-        //     title: title,
-        //     description: description,
-        //     name: name,
-        //     data: data[id][0]
-        // }
-        return results
+
+        const newData = results.map((value) => {
+            return {
+                ...value,
+                urlImage: `https://res.cloudinary.com/dd0myqhyb/image/upload/Apps/PokemonPlaces/${value.name}.png`,
+            }
+        })
+        setSimpleRegions(newData)
+        return newData
     }
 
     useEffect(() => {

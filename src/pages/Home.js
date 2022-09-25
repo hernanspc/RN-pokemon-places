@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, StatusBar } from 'react-native'
 import Animated from 'react-native-reanimated';
+import ListRegion from '../components/ListRegion.js';
 import { useGetRegions } from '../hook/useGetRegions.js';
 import { SPACING, ITEM_SIZE } from '../utils/constants.js';
 
@@ -17,7 +18,7 @@ const Home = () => {
                     require('../assets/images/background.png')
                 }
                 style={StyleSheet.absoluteFill}
-                blurRadius={4}
+                blurRadius={3}
             />
             <Animated.FlatList
                 data={simpleRegions}
@@ -53,7 +54,7 @@ const Home = () => {
                     })
 
                     return (
-                        <Text>{index}</Text>
+                        <ListRegion key={index} data={item} opacity={opacity} scale={scale} />
                     )
                 })}
 
