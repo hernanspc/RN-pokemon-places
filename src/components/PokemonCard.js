@@ -33,11 +33,10 @@ export const PokemonCard = ({ pokemon }) => {
     }, [])
 
     const handlePressPokemon = () => {
-        console.log('select pokemon', pokemon.id)
+        console.log('select pokemon', pokemon)
         dispatch(
-            addPokemons(pokemon.id)
+            addPokemons(pokemon)
         )
-
     }
 
     return (
