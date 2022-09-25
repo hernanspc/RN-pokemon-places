@@ -8,6 +8,7 @@ import colors from '../constants/colors';
 import { useDispatch } from 'react-redux';
 import { AVATAR_SIZE, SPACING } from '../utils/constants';
 import { capitalizar } from '../utils/function';
+import { selectItemPokemon } from '../features/pokemon/pokemon';
 
 const ListRegion = ({ data }) => {
     const { name, url, urlImage } = data;
@@ -18,10 +19,9 @@ const ListRegion = ({ data }) => {
     // const { title, description, id } = data;
 
     const handlePress = async (data) => {
-        console.log('asas ')
-
-        // navigation.navigate('Detail', { title: title })
-        // dispatch(setItemSelected(data));
+        console.log('pasando  ', data)
+        navigation.navigate('GroupsScreen')
+        dispatch(selectItemPokemon(data));
     }
 
     return (

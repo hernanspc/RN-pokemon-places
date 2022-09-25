@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import auth from '@react-native-firebase/auth';
 import Home from '../pages/Home'
+import GroupsScreen from '../pages/GroupsScreen';
 import { useDispatch } from 'react-redux';
 import { signOut } from '../features/auth/auth';
 
@@ -35,7 +36,7 @@ export default function HomeStack() {
                     ),
                 }}
             />
-            {/* <Stack.Screen name="Notifications" component={NotificationsScreen} /> */}
+            <Stack.Screen name="GroupsScreen" component={GroupsScreen} />
 
         </Stack.Navigator>
     );
