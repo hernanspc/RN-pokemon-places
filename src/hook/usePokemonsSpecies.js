@@ -26,7 +26,15 @@ export const usePokemonsSpecies = () => {
 
     const getPokemons = async (url) => {
         const { data } = await axios.get(`${url}`)
-        setSimpleListPokemon(data?.pokemon_species)
+        const newArray = data?.pokemon_species.map((value) => {
+            console.log('val ', value)
+            return {
+                ...value,
+                image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png`,
+            }
+        })
+
+        setSimpleListPokemon(newArray)
         setIsLoading(false);
     }
 

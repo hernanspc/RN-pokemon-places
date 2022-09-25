@@ -10,7 +10,7 @@ import { usePokemonsSpecies } from '../hook/usePokemonsSpecies';
 const CreateSquadScreen = () => {
     const navigation = useNavigation();
 
-    const { } = usePokemonsSpecies()
+    const { simpleListPokemon } = usePokemonsSpecies()
 
     const handleSave = () => {
         console.log('handleSave')
@@ -20,6 +20,7 @@ const CreateSquadScreen = () => {
         console.log('handleCancel')
     }
 
+    // console.log('simpleListPokemon ', simpleListPokemon)
 
     useEffect(() => {
         navigation.setOptions({
