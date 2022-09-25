@@ -1,4 +1,4 @@
-import { StyleSheet, Text, Button, View as ViewDefault } from 'react-native'
+import { StyleSheet, Text, Button, View as ViewDefault, FlatList, ActivityIndicator } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { View } from '../themed/Themed'
@@ -6,11 +6,13 @@ import MyText from '../components/MyText';
 import MyInput from '../components/MyInput';
 import colors from '../constants/colors';
 import { usePokemonsSpecies } from '../hook/usePokemonsSpecies';
+import { PokemonCard } from '../components/PokemonCard.js';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const CreateSquadScreen = () => {
     const navigation = useNavigation();
-
-    const { simpleListPokemon } = usePokemonsSpecies()
+    const { top } = useSafeAreaInsets();
+    const { simpleListPokemon, getList } = usePokemonsSpecies()
 
     const handleSave = () => {
         console.log('handleSave')
@@ -62,7 +64,45 @@ const CreateSquadScreen = () => {
 
             </ViewDefault>
 
+            <View
+                style={{ alignItems: 'center' }}
+            >
 
+                <FlatList
+                    data={simpleListPokemon}
+                    keyExtractor={(pokemon) => pokemon.id}
+                    showsVerticalScrollIndicator={false}
+                    numColumns={2}
+
+                    // Header
+                    ListHeaderComponent={(
+                        <Text style={{
+                            ...styles.title,
+                            ...styles.globalMargin,
+                            top: top + 20,
+                            marginBottom: top + 20,
+                            paddingBottom: 10
+                        }}>Pokedex </Text>
+                    )}
+
+                    renderItem={({ item, index }) => (
+                        // <Text>{index}</Text>
+                        <PokemonCard pokemon={item} />
+                    )}
+
+                    // infinite scroll
+                    onEndReached={getList}
+                    onEndReachedThreshold={0.4}
+
+                    ListFooterComponent={(
+                        <ActivityIndicator
+                            style={{ height: 100 }}
+                            size={20}
+                            color="grey"
+                        />
+                    )}
+                />
+            </View>
 
         </View>
     )

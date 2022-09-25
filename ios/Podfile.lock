@@ -633,6 +633,8 @@ PODS:
     - RNFBApp
   - RNGestureHandler (2.6.2):
     - React-Core
+  - RNImageColors (1.5.1):
+    - React-Core
   - RNPermissions (3.6.1):
     - React-Core
   - RNReanimated (2.10.0):
@@ -719,6 +721,7 @@ DEPENDENCIES:
   - "RNFBFirestore (from `../node_modules/@react-native-firebase/firestore`)"
   - "RNFBStorage (from `../node_modules/@react-native-firebase/storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNImageColors (from `../node_modules/react-native-image-colors`)
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -838,6 +841,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/storage"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNImageColors:
+    :path: "../node_modules/react-native-image-colors"
   RNPermissions:
     :path: "../node_modules/react-native-permissions"
   RNReanimated:
@@ -915,6 +920,7 @@ SPEC CHECKSUMS:
   RNFBFirestore: 337b96bf5b1b2d32bb9fc4735afd47b16532dde8
   RNFBStorage: fb33c149ca21187b86f4e32dc35693525b5f2ac0
   RNGestureHandler: 4defbd70b2faf3d6761b82fa7880285241762cb0
+  RNImageColors: fd9777591fc765780e035f4bec7a42edabc86eb4
   RNPermissions: dcdb7b99796bbeda6975a6e79ad519c41b251b1c
   RNReanimated: 7faa787e8d4493fbc95fab2ad331fa7625828cfa
   RNScreens: 0df01424e9e0ed7827200d6ed1087ddd06c493f9

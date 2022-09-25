@@ -40,6 +40,7 @@ export const usePokemonsSpecies = () => {
 
     return {
         simpleListPokemon,
-        isLoading
+        isLoading,
+        getList
     }
 }
