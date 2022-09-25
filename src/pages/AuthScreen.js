@@ -63,13 +63,14 @@ const AuthScreen = () => {
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <Image
-                source={{
-                    uri: 'https://res.cloudinary.com/dd0myqhyb/image/upload/v1664036479/Apps/PokemonPlaces/login.png'
-                }}
+                source={require('../assets/images/pokemonLogo.png')}
                 style={styles.logo}
             />
             <Text style={styles.text}>RN Social App</Text>
-
+            <Image
+                source={require('../assets/images/pokeball.gif')}
+                style={styles.img}
+            />
             {/* <FormInput
                 labelValue={email}
                 onChangeText={(userEmail) => setEmail(userEmail)}
@@ -142,6 +143,12 @@ const styles = StyleSheet.create({
     logo: {
         height: 120,
         width: "100%",
+        resizeMode: 'cover',
+        // backgroundColor: 'red'
+    },
+    img: {
+        // height: 120,
+        // width: "100%",
         resizeMode: 'cover',
         // backgroundColor: 'red'
     },
