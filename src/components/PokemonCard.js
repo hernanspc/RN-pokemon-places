@@ -34,12 +34,7 @@ export const PokemonCard = ({ pokemon }) => {
     }, [])
 
     const handlePressPokemon = () => {
-        navigation.navigate('PokemonScreen',
-            // {
-            // simplePokemon: pokemon,
-            // color: bgColor
-            // }
-        )
+        console.log('select pokemon')
     }
 
 
@@ -73,7 +68,7 @@ export const PokemonCard = ({ pokemon }) => {
                     style={styles.pokemonImage}
                 /> */}
                 <Image
-                    uri={pokemon.image}
+                    source={{ uri: pokemon.image }}
                     style={styles.pokemonImage}
                 />
 
