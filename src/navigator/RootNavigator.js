@@ -6,6 +6,7 @@ import AuthStack from "./AuthStack";
 // import Drawer from "./Drawer";
 import auth from '@react-native-firebase/auth';
 import { setUserData, signIn } from "../features/auth/auth";
+import HomeStack from "./HomeStack";
 
 export function RootNavigator() {
     const dispatch = useDispatch();
@@ -32,25 +33,14 @@ export function RootNavigator() {
 
     const { userToken } = useSelector(state => state.auth);
 
-    const handleButton = async () => {
-        try {
-            await auth().signOut();
-        } catch (e) {
-            console.log(e);
-        }
-    }
-
     if (initializing) return <Text>Cargando....</Text>;
 
     return (
         <>
-            <StatusBar translucent barStyle="light-content" backgroundColor="transparent" />
+            <StatusBar translucent barStyle="dark-content" backgroundColor="transparent" />
             {userToken ?
                 // <Drawer />
-                <>
-                    <Text>Loageado</Text>
-                    <Button title="Cerrar todo " onPress={handleButton} />
-                </>
+                <HomeStack />
                 :
                 <AuthStack />
             }
