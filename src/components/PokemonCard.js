@@ -39,10 +39,13 @@ export const PokemonCard = ({ pokemon }) => {
         )
     }
 
+
+
     return (
         <TouchableOpacity
             activeOpacity={0.9}
             onPress={handlePressPokemon}
+        // disabled={true}
         >
             <View style={{
                 ...styles.cardContainer,
