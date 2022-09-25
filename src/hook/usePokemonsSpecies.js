@@ -13,24 +13,20 @@ export const usePokemonsSpecies = () => {
         setIsLoading(true)
         const { data } = await axios.get(`${pokemonItem.url}`)
         const urlEspecies = data?.main_generation?.url;
-        // const { results } = data;
-        // const newData = results.map((value) => {
-        //     return {
-        //         ...value,
-        //         urlImage: `https://res.cloudinary.com/dd0myqhyb/image/upload/v1664082977/Apps/PokemonPlaces/${value.name}.png`,
-        //     }
-        // })
-        // setSimpleRegions(newData)
         getPokemons(urlEspecies)
     }
 
     const getPokemons = async (url) => {
         const { data } = await axios.get(`${url}`)
-        const newArray = data?.pokemon_species.map((value) => {
-            console.log('val ', value)
+        // https://pokeapi.co/api/v2/pokemon/bulbasaur
+
+        const newArray = data?.pokemon_species.map((element) => {
+            const urlParts = element.url.split('/');
+            const id = urlParts[urlParts.length - 2];
+
             return {
-                ...value,
-                image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png`,
+                ...element,
+                image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
             }
         })
 
