@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { AVATAR_SIZE, SPACING } from '../utils/constants';
 
 const ListRegion = ({ data, opacity, scale }) => {
-    console.log('data ', data)
+    console.log('ListRegion ', data)
     const { name, url, urlImage } = data;
 
     const navigation = useNavigation();

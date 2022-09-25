@@ -13,7 +13,7 @@ export const useGetRegions = () => {
         const newData = results.map((value) => {
             return {
                 ...value,
-                urlImage: `https://res.cloudinary.com/dd0myqhyb/image/upload/Apps/PokemonPlaces/${value.name}.png`,
+                urlImage: `https://res.cloudinary.com/dd0myqhyb/image/upload/v1664082977/Apps/PokemonPlaces/${value.name}.png`,
             }
         })
         setSimpleRegions(newData)
