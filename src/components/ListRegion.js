@@ -10,7 +10,7 @@ import { AVATAR_SIZE, SPACING } from '../utils/constants';
 import { capitalizar } from '../utils/function';
 import { selectItemPokemon } from '../features/pokemon/pokemon';
 
-const ListRegion = ({ data }) => {
+const ListRegion = ({ data, }, key) => {
     const { name, url, urlImage } = data;
 
     const navigation = useNavigation();
@@ -28,6 +28,7 @@ const ListRegion = ({ data }) => {
     return (
         <TouchableOpacity
             onPress={() => handlePress(data)}
+
         >
 
             <View style={{

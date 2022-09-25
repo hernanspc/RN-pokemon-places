@@ -9,7 +9,6 @@ import { FadeInImage } from './FadeInImage.js';
 const windowWidth = Dimensions.get('window').width
 
 export const PokemonCard = ({ pokemon }) => {
-    console.log('pokemon ', pokemon)
     const [bgColor, setBgColor] = useState('grey');
     const isMounted = useRef(true);
     const navigation = useNavigation();

@@ -20,14 +20,13 @@ const Home = () => {
             />
             <Animated.FlatList
                 data={simpleRegions}
-                keyExtractor={item => item.id}
+                keyExtractor={(item, index) => index}
                 contentContainerStyle={{ padding: SPACING, paddingTop: StatusBar.currentHeight || 20 }}
-                renderItem={(({ index, item }) => {
+                renderItem={(({ item, index }) => {
                     return (
                         <ListRegion key={index} data={item} />
                     )
                 })}
-
             />
         </View>
     )
