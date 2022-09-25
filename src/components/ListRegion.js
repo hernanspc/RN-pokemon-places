@@ -18,15 +18,16 @@ const ListRegion = ({ data }) => {
     const colorScheme = useColorScheme();
     // const { title, description, id } = data;
 
-    const handlePress = async (data) => {
-        console.log('pasando  ', data)
-        navigation.navigate('GroupsScreen')
-        dispatch(selectItemPokemon(data));
+    const handlePress = async (value) => {
+        navigation.navigate('GroupsScreen', {
+            name: name,
+        })
+        dispatch(selectItemPokemon(value));
     }
 
     return (
         <TouchableOpacity
-            onPress={handlePress}
+            onPress={() => handlePress(data)}
         >
 
             <View style={{
