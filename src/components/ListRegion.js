@@ -9,8 +9,7 @@ import { useDispatch } from 'react-redux';
 import { AVATAR_SIZE, SPACING } from '../utils/constants';
 import { capitalizar } from '../utils/function';
 
-const ListRegion = ({ data, opacity, scale }) => {
-    console.log('ListRegion ', data)
+const ListRegion = ({ data }) => {
     const { name, url, urlImage } = data;
 
     const navigation = useNavigation();
@@ -26,52 +25,40 @@ const ListRegion = ({ data, opacity, scale }) => {
     }
 
     return (
-        <Animated.View style={{
-            flexDirection: 'row', padding: SPACING, marginBottom: SPACING, backgroundColor: "rgba(255,255,255,0.9)", borderRadius: 12,
-            shadowColor: "#000",
-            shadowOffset: {
-                width: 0,
-                height: 10,
-            },
-            shadowOpacity: .3,
-            shadowRadius: 20,
-            opacity,
-            transform: [{ scale }]
-        }}>
-            <Image
-                source={{ uri: urlImage }}
-                style={{
-                    width: AVATAR_SIZE, height: AVATAR_SIZE, borderRadius: AVATAR_SIZE,
-                    marginRight: SPACING / 2,
-                }}
-            />
-            <View style={styles.wrapperIcon} >
-                <Text style={{ fontSize: 22, fontWeight: "700" }} >
-                    {capitalizar(name)}
-                </Text>
+        <TouchableOpacity
+            onPress={handlePress}
+        >
+
+            <View style={{
+                flexDirection: 'row', padding: SPACING, marginBottom: SPACING, backgroundColor: "rgba(255,255,255,0.9)", borderRadius: 20,
+                shadowColor: "#000",
+                shadowOffset: {
+                    width: 0,
+                    height: 10,
+                },
+                shadowOpacity: .3,
+                shadowRadius: 20,
+            }}>
+                <Image
+                    source={{ uri: urlImage }}
+                    style={{
+                        width: AVATAR_SIZE, height: AVATAR_SIZE, borderRadius: AVATAR_SIZE,
+                        marginRight: SPACING / 2,
+                    }}
+                />
+                <View style={styles.wrapperIcon} >
+                    <Text style={{ fontSize: 22, fontWeight: "700" }} >
+                        {capitalizar(name)}
+                    </Text>
+                </View>
             </View>
-        </Animated.View>
+        </TouchableOpacity>
     )
 }
 
 export default ListRegion
 
 const styles = StyleSheet.create({
-    container: {
-        marginVertical: 5, display: 'flex',
-        flexDirection: 'row', width: "100%", height: 70,
-        paddingHorizontal: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: "#CBCBCB",
-        shadowRadius: 10,
-    },
-    wrapperText: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        width: "70%",
-        height: "100%",
-    },
     wrapperIcon: {
         // backgroundColor: "pink",
         display: 'flex',

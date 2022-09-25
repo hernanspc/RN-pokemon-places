@@ -7,8 +7,6 @@ import { SPACING, ITEM_SIZE } from '../utils/constants.js';
 
 const Home = () => {
 
-    const scrollY = React.useRef(new Animated.Value(0)).current;
-
     const { simpleRegions } = useGetRegions();
 
     return (
@@ -24,37 +22,9 @@ const Home = () => {
                 data={simpleRegions}
                 keyExtractor={item => item.id}
                 contentContainerStyle={{ padding: SPACING, paddingTop: StatusBar.currentHeight || 20 }}
-                onScroll={Animated.event(
-                    [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-                    { useNativeDriver: true }
-                )}
                 renderItem={(({ index, item }) => {
-                    const inputRange = [
-                        -1,
-                        0,
-                        ITEM_SIZE * index,
-                        ITEM_SIZE * (index + 2),
-                    ]
-
-                    const opacityinputRange = [
-                        -1,
-                        0,
-                        ITEM_SIZE * index,
-                        ITEM_SIZE * (index + 1),
-                    ]
-
-                    const scale = scrollY.interpolate({
-                        inputRange,
-                        outputRange: [1, 1, 1, 0]
-                    })
-
-                    const opacity = scrollY.interpolate({
-                        inputRange: opacityinputRange,
-                        outputRange: [1, 1, 1, 0]
-                    })
-
                     return (
-                        <ListRegion key={index} data={item} opacity={opacity} scale={scale} />
+                        <ListRegion key={index} data={item} />
                     )
                 })}
 
