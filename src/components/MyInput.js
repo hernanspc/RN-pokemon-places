@@ -2,7 +2,7 @@ import { TextInput, View as ViewDefault, StyleSheet, useColorScheme, } from "rea
 import Colors from "../constants/colors";
 import { View } from "../themed/Themed";
 import MyText from "./MyText";
-
+import React from "react";
 
 export default function MyInput({
   label,

@@ -1,7 +1,10 @@
-import { StyleSheet, Text, Button } from 'react-native'
-import React, { useEffect } from 'react'
+import { StyleSheet, Text, Button, View as ViewDefault } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { View } from '../themed/Themed'
+import MyText from '../components/MyText';
+import MyInput from '../components/MyInput';
+import colors from '../constants/colors';
 
 const CreateSquadScreen = () => {
     const navigation = useNavigation();
@@ -34,10 +37,26 @@ const CreateSquadScreen = () => {
         });
     }, [navigation]);
 
+    const [name, setName] = useState(null)
+
     return (
         <View>
 
-            <Text>CreateSquadScreen</Text>
+            <MyInput label={'Nombre del Grupo :'} value={name} onChangeText={setName} selectionColor={colors.light.backgroundMovistar} />
+
+            <MyInput label={'Tipo :'} value={name} onChangeText={setName} selectionColor={colors.light.backgroundMovistar} />
+
+            <MyInput label={'Pokedex descripción: '} value={name} onChangeText={setName} multiline selectionColor={colors.light.backgroundMovistar} />
+
+            <ViewDefault style={{ flexDirection: 'row', display: 'flex', alignContent: 'center' }} >
+
+                <MyText type="caption" style={{ fontWeight: "bold" }}  > Pokemones seleccionados : </MyText>
+
+                <MyText type="caption" style={{ fontWeight: "bold", }}  >0</MyText>
+
+            </ViewDefault>
+
+
         </View>
     )
 }
