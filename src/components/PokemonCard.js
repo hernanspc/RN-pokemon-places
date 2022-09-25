@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
 
 import ImageColors from 'react-native-image-colors'
+import { useDispatch } from 'react-redux';
+import { addPokemons } from '../features/pokemon/pokemon.js';
 
 import { FadeInImage } from './FadeInImage.js';
 
@@ -12,6 +14,7 @@ export const PokemonCard = ({ pokemon }) => {
     const [bgColor, setBgColor] = useState('grey');
     const isMounted = useRef(true);
     const navigation = useNavigation();
+    const dispatch = useDispatch();
 
     useEffect(() => {
 
@@ -31,6 +34,10 @@ export const PokemonCard = ({ pokemon }) => {
 
     const handlePressPokemon = () => {
         console.log('select pokemon', pokemon.id)
+        dispatch(
+            addPokemons(pokemon.id)
+        )
+
     }
 
     return (
