@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import colors from '../constants/colors';
 import { useDispatch } from 'react-redux';
 import { AVATAR_SIZE, SPACING } from '../utils/constants';
+import { capitalizar } from '../utils/function';
 
 const ListRegion = ({ data, opacity, scale }) => {
     console.log('ListRegion ', data)
@@ -46,7 +47,7 @@ const ListRegion = ({ data, opacity, scale }) => {
             />
             <View style={styles.wrapperIcon} >
                 <Text style={{ fontSize: 22, fontWeight: "700" }} >
-                    {name}
+                    {capitalizar(name)}
                 </Text>
             </View>
         </Animated.View>
