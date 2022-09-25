@@ -62,52 +62,21 @@ const AuthScreen = () => {
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            <Image
-                source={require('../assets/images/pokemonLogo.png')}
-                style={styles.logo}
-            />
-            <Text style={styles.text}>RN Social App</Text>
-            <Image
-                source={require('../assets/images/pokeball.gif')}
-                style={styles.img}
-            />
-            {/* <FormInput
-                labelValue={email}
-                onChangeText={(userEmail) => setEmail(userEmail)}
-                placeholderText="Email"
-                iconType="user"
-                keyboardType="email-address"
-                autoCapitalize="none"
-                autoCorrect={false}
-            />
-
-            <FormInput
-                labelValue={password}
-                onChangeText={(userPassword) => setPassword(userPassword)}
-                placeholderText="Password"
-                iconType="lock"
-                secureTextEntry={true}
-            />
-
-            <FormButton
-                buttonTitle="Sign In"
-                onPress={() => login(email, password)}
-            /> */}
-
-            {/* <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
-                <Text style={styles.navButtonText}>Forgot Password?</Text>
-            </TouchableOpacity> */}
-
-
-            <View>
-                {/* <SocialButton
-                        buttonTitle="Sign In with Facebook"
-                        btnType="facebook"
-                        color="#4867aa"
-                        backgroundColor="#e6eaf4"
-                        onPress={() => fbLogin()}
-                    /> */}
-
+            <View style={{
+                flex: 1,
+                height: 100,
+                // backgroundColor: "#F0F"
+            }}>
+                <Image
+                    source={require('../assets/images/pokemonLogo.png')}
+                    style={styles.logo}
+                />
+            </View>
+            <View style={{
+                flex: 1, paddingHorizontal: 10,
+                alignItems: 'center', justifyContent: 'center',
+                // backgroundColor: "#AABB90"
+            }}>
                 <SocialButton
                     buttonTitle="Sign In with Google"
                     btnType="google"
@@ -115,18 +84,11 @@ const AuthScreen = () => {
                     backgroundColor="#f5e7ea"
                     onPress={handleSignIn}
                 />
+                <Image
+                    source={require('../assets/images/pokeball.gif')}
+                    style={styles.img}
+                />
             </View>
-
-
-            {/* <TouchableOpacity
-                style={styles.forgotButton}
-                onPress={() => {
-                    console.log('create account')
-                }}>
-                <Text style={styles.navButtonText}>
-                    Don't have an acount? Create here
-                </Text>
-            </TouchableOpacity> */}
         </ScrollView>
     )
 }
@@ -135,13 +97,15 @@ export default AuthScreen
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 20,
-        paddingTop: 50
+        flex: 1,
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        // padding: 20,
+        // paddingTop: 50
     },
     logo: {
-        height: 120,
+        marginTop: 50,
+        height: 150,
         width: "100%",
         resizeMode: 'cover',
         // backgroundColor: 'red'
