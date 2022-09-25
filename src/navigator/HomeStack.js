@@ -26,6 +26,7 @@ export default function HomeStack() {
         >
             <Stack.Screen name="Home" component={Home}
                 options={{
+                    title: 'Regiones',
                     headerRight: () => (
                         <Button
                             onPress={handleLogout}
