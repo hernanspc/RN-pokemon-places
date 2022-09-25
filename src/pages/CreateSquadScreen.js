@@ -5,9 +5,12 @@ import { View } from '../themed/Themed'
 import MyText from '../components/MyText';
 import MyInput from '../components/MyInput';
 import colors from '../constants/colors';
+import { usePokemonsSpecies } from '../hook/usePokemonsSpecies';
 
 const CreateSquadScreen = () => {
     const navigation = useNavigation();
+
+    const { } = usePokemonsSpecies()
 
     const handleSave = () => {
         console.log('handleSave')
@@ -38,15 +41,17 @@ const CreateSquadScreen = () => {
     }, [navigation]);
 
     const [name, setName] = useState(null)
+    const [type, setType] = useState(null)
+    const [description, setDescription] = useState(null)
 
     return (
         <View>
 
             <MyInput label={'Nombre del Grupo :'} value={name} onChangeText={setName} selectionColor={colors.light.backgroundMovistar} />
 
-            <MyInput label={'Tipo :'} value={name} onChangeText={setName} selectionColor={colors.light.backgroundMovistar} />
+            <MyInput label={'Tipo :'} value={type} onChangeText={setType} selectionColor={colors.light.backgroundMovistar} />
 
-            <MyInput label={'Pokedex descripción: '} value={name} onChangeText={setName} multiline selectionColor={colors.light.backgroundMovistar} />
+            <MyInput label={'Pokedex descripción: '} value={description} onChangeText={setDescription} multiline selectionColor={colors.light.backgroundMovistar} />
 
             <ViewDefault style={{ flexDirection: 'row', display: 'flex', alignContent: 'center' }} >
 
@@ -55,6 +60,7 @@ const CreateSquadScreen = () => {
                 <MyText type="caption" style={{ fontWeight: "bold", }}  >0</MyText>
 
             </ViewDefault>
+
 
 
         </View>
