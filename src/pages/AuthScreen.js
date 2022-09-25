@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     },
     img: {
         // height: 120,
-        // width: "100%",
+        // width: "30%",
         resizeMode: 'cover',
         // backgroundColor: 'red'
     },
