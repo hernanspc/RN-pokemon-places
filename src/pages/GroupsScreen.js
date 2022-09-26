@@ -85,8 +85,8 @@ const GroupsScreen = () => {
                 setLoading(false)
                 if (snapshot?.val()) {
                     setGroupData(Object?.keys(snapshot?.val()))
-
                 } else {
+                    setGroupData([])
                     return
                 }
 
