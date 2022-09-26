@@ -42,7 +42,11 @@ export default function HomeStack() {
             <Stack.Screen name="GroupsScreen" component={GroupsScreen} />
             <Stack.Screen name="CreateSquadScreen" component={CreateSquadScreen} />
             <Stack.Screen name="InfoGroup" component={InfoGroup} />
-            <Stack.Screen name="EditSquad" component={EditSquad} />
+            <Stack.Screen name="EditSquad" component={EditSquad}
+                options={{
+                    title: 'Editar grupo pokemon',
+                }}
+            />
         </Stack.Navigator>
     );
 }

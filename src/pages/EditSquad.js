@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View as ViewDefault, TextInput, Button } from 'react-native'
+import { StyleSheet, Text, View as ViewDefault, TextInput, Button, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { View } from '../themed/Themed';
@@ -18,6 +18,7 @@ const EditSquad = () => {
 
     const [name, setName] = useState('')
     const [type, setType] = useState('')
+    const [description, setDescription] = useState('')
 
 
 
@@ -30,6 +31,8 @@ const EditSquad = () => {
 
                 setName(snapshot?.val().name)
                 setType(snapshot?.val().type)
+                setDescription(snapshot?.val().description)
+
             })
     }
 
@@ -37,7 +40,20 @@ const EditSquad = () => {
         getInfoGroupSelect();
     }, [])
 
-    console.log('info ', info)
+    const actuallyData = () => {
+        database()
+            .ref(`/grupo/${region}/${group}`)
+            .update({
+                description: description,
+                name: name,
+                type: type,
+            })
+            .then(() => {
+                Alert.alert('Datos actualizados correctamente')
+                console.log('Data updated.')
+            });
+
+    }
 
     return (
         <View>
@@ -49,11 +65,12 @@ const EditSquad = () => {
                 <MyInput label={'Tipo :'} value={type} onChangeText={setType}
                     selectionColor={colors.light.backgroundMovistar} />
 
+                <MyInput label={'Pokedex descripción: '} value={description}
+                    onChangeText={setDescription} multiline selectionColor={colors.light.backgroundMovistar} />
+
             </ViewDefault>
 
-            <Button title='Actualizar' onPress={() => {
-                console.log('name ', name)
-            }} />
+            <Button title='Actualizar Datos' onPress={actuallyData} />
 
         </View>
     )
