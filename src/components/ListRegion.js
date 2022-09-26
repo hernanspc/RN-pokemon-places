@@ -19,7 +19,7 @@ const ListRegion = ({ data, }, key) => {
 
     const handlePress = async (value) => {
         navigation.navigate('GroupsScreen', {
-            name: name,
+            region: name,
         })
         dispatch(selectItemPokemon(value));
     }

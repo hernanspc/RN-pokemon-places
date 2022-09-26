@@ -41,7 +41,7 @@ const CreateSquadScreen = () => {
             .then(() => console.log('Data set.'));
         dispatch(deleteAllPokemons())
         Alert.alert('Group created correctly')
-        navigation.navigate('GroupsScreen')
+        navigation.navigate('GroupsScreen', { region: region })
     }
 
     const handleCancel = () => {
