@@ -18,8 +18,6 @@ export const usePokemonsSpecies = () => {
 
     const getPokemons = async (url) => {
         const { data } = await axios.get(`${url}`)
-        // https://pokeapi.co/api/v2/pokemon/bulbasaur
-
         const newArray = data?.pokemon_species.map((element) => {
             const urlParts = element.url.split('/');
             const id = urlParts[urlParts.length - 2];
@@ -27,12 +25,24 @@ export const usePokemonsSpecies = () => {
             return {
                 ...element,
                 id: id,
+                isSelected: false,
                 image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
             }
         })
 
         setSimpleListPokemon(newArray)
         setIsLoading(false);
+    }
+
+    const changeStatus = (id) => {
+        // console.log('id ', simpleListPokemon[id])
+        const ab = simpleListPokemon.filter(value => value.id === id)
+        ab.map(e => { e.isSelected = true }
+            // console.log('value ', value)
+        )
+
+
+
     }
 
     useEffect(() => {
@@ -42,6 +52,7 @@ export const usePokemonsSpecies = () => {
     return {
         simpleListPokemon,
         isLoading,
-        getList
+        getList,
+        changeStatus
     }
 }

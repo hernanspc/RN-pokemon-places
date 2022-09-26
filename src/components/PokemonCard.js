@@ -3,21 +3,27 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
 
 import ImageColors from 'react-native-image-colors'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addPokemons } from '../features/pokemon/pokemon.js';
+import { usePokemonsSpecies } from '../hook/usePokemonsSpecies.js';
 
 import { FadeInImage } from './FadeInImage.js';
 
 const windowWidth = Dimensions.get('window').width
 
 export const PokemonCard = ({ pokemon }) => {
+
+    const { changeStatus } = usePokemonsSpecies();
+
+    const { pokemons } = useSelector(state => state.pokemon);
+    // console.log('pokemons ', pokemons)
+
     const [bgColor, setBgColor] = useState('grey');
     const isMounted = useRef(true);
     const navigation = useNavigation();
     const dispatch = useDispatch();
 
     useEffect(() => {
-
         ImageColors.getColors(pokemon.image, { fallback: 'grey' })
             .then(colors => {
                 if (!isMounted.current) return;
@@ -25,18 +31,23 @@ export const PokemonCard = ({ pokemon }) => {
                     ? setBgColor(colors.dominant || 'grey')
                     : setBgColor(colors.background || 'grey')
             });
-
         return () => {
             isMounted.current = false
         }
-
     }, [])
 
+    // const pop = pokemons.filter(value => value.id === pokemon.id)
+
     const handlePressPokemon = () => {
-        console.log('select pokemon', pokemon)
-        dispatch(
-            addPokemons(pokemon)
-        )
+        changeStatus(pokemon.id)
+
+        // pokemon?.map((e) => console.log('e ', e))
+        // console.log(pokemon)
+
+
+        // dispatch(
+        //     addPokemons(pokemon)
+        // )
     }
 
 
@@ -50,12 +61,12 @@ export const PokemonCard = ({ pokemon }) => {
             <View style={{
                 ...styles.cardContainer,
                 width: windowWidth * 0.4,
-                backgroundColor: bgColor
+                backgroundColor: pokemon.isSelected === true ? 'red' : bgColor
             }}>
                 {/* Nombre del pokemon y ID */}
                 <View>
                     <Text style={styles.name}>
-                        {pokemon.name}
+                        {pokemon.isSelected === true ? 'OK ' : pokemon.name}
                         {'\n#' + pokemon?.id}
                     </Text>
                 </View>
