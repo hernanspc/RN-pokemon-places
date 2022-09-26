@@ -137,10 +137,6 @@ const GroupsScreen = () => {
                 }
             ]
         );
-
-
-
-
     }
 
     if (loading) {

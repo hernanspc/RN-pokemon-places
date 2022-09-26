@@ -29,10 +29,11 @@ const InfoGroup = () => {
         await database()
             .ref(`/grupo/${region}/${group}`)
             .on('value', snapshot => {
-                setLoading(false)
-                // console.log('snapshot', snapshot?.val())
-                setDateGroup(snapshot?.val())
-                setCountPoke(Object?.keys(snapshot?.val()?.pokemons).length)
+                if (snapshot?.val()) {
+                    setLoading(false)
+                    setDateGroup(snapshot?.val())
+                    setCountPoke(Object?.keys(snapshot?.val()?.pokemons).length)
+                }
             })
     }
 

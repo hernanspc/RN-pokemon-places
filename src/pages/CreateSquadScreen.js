@@ -30,24 +30,40 @@ const CreateSquadScreen = () => {
 
 
     const handleSave = async () => {
-        await database()
-            .ref(`/grupo/${region}/${Date.now()}`)
-            .set({
-                name: name,
-                type: type,
-                description: description,
-                pokemons: pokemons,
-                user: userToken,
-                time: Date(),
-            })
-            .then(() => console.log('Data set.'));
-        dispatch(deleteAllPokemons())
-        Alert.alert('Group created correctly')
-        navigation.navigate('GroupsScreen', { region: region })
+        const countAll = Object.keys(pokemons).length
+        const min = 3;
+        const max = 6;
+
+        if (countAll >= min && countAll <= max) {
+            await database()
+                .ref(`/grupo/${region}/${Date.now()}`)
+                .set({
+                    name: name,
+                    type: type,
+                    description: description,
+                    pokemons: pokemons,
+                    user: userToken,
+                    time: Date(),
+                })
+                .then(() => {
+                    dispatch(deleteAllPokemons());
+                    console.log('Data set.');
+                });
+            Alert.alert('Group created correctly')
+            navigation.navigate('GroupsScreen', { region: region })
+        } else {
+            Alert.alert('Debes considerar Minimo 3 y Maximo 6 pokemones')
+        }
+
+
     }
 
     const handleCancel = () => {
         console.log('handleCancel')
+        dispatch(deleteAllPokemons())
+        setName('')
+        setType('')
+        setDescription('')
     }
 
     useEffect(() => {
@@ -60,7 +76,6 @@ const CreateSquadScreen = () => {
                         onPress={handleSave}
                         title="Guardar"
                     /> */}
-
                 </View>
             ),
         });
@@ -117,7 +132,6 @@ const CreateSquadScreen = () => {
                     )}
 
                     renderItem={({ item, index }) => (
-                        // <Text>{index}</Text>
                         <PokemonCard pokemon={item}
                         // totalSelect={totalSelect}
                         />
