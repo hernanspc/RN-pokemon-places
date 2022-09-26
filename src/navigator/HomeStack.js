@@ -8,6 +8,7 @@ import GroupsScreen from '../pages/GroupsScreen';
 import { useDispatch } from 'react-redux';
 import { signOut } from '../features/auth/auth';
 import CreateSquadScreen from '../pages/CreateSquadScreen';
+import InfoGroup from '../pages/InfoGroup';
 
 const Stack = createStackNavigator();
 
@@ -39,7 +40,7 @@ export default function HomeStack() {
             />
             <Stack.Screen name="GroupsScreen" component={GroupsScreen} />
             <Stack.Screen name="CreateSquadScreen" component={CreateSquadScreen} />
-
+            <Stack.Screen name="InfoGroup" component={InfoGroup} />
         </Stack.Navigator>
     );
 }
