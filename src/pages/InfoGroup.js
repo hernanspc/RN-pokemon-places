@@ -4,7 +4,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import database from '@react-native-firebase/database';
 import MyText from '../components/MyText';
 import { View } from '../themed/Themed';
-import { VStack, Image, ScrollView, Heading, Center, NativeBaseProvider } from "native-base";
+import { VStack, HStack, Image, ScrollView, Heading, Center, NativeBaseProvider } from "native-base";
 
 
 const InfoGroup = () => {
@@ -47,39 +47,37 @@ const InfoGroup = () => {
 
     return (
         <View>
-            {/* <Button title="Editar " onPress={() =>
-                navigation.navigate('EditSquad', { region: region, group: group })
+            <ScrollView style={{ height: '100%' }}>
 
-            } />
-            <Button title="Eliminar " onPress={() =>
-                console.log('eliminar')
-            } /> */}
+                <View style={{ flexDirection: 'row' }}>
+                    <MyText type="body"> Nombre  </MyText>
+                    <MyText type="body">{dateGroup.name}</MyText>
+                </View>
 
-            <View style={{ flexDirection: 'row' }}>
-                <MyText type="body"> Nombre  </MyText>
-                <MyText type="body">{dateGroup.name}</MyText>
-            </View>
+                <View style={{ flexDirection: 'row' }}>
+                    <MyText type="body"> Numero  </MyText>
+                    <MyText type="body">{countPoke}</MyText>
+                </View>
+                <View style={{ flexDirection: 'row' }}>
+                    <MyText type="body"> Tipo  </MyText>
+                    <MyText type="body">{dateGroup.type}</MyText>
+                </View>
+                <View style={{ flexDirection: 'row' }}>
+                    <MyText type="body"> Descripcion  </MyText>
+                    <MyText type="body">{dateGroup.description}</MyText>
+                </View>
 
-            <View style={{ flexDirection: 'row' }}>
-                <MyText type="body"> Numero  </MyText>
-                <MyText type="body">{countPoke}</MyText>
-            </View>
-            <View style={{ flexDirection: 'row' }}>
-                <MyText type="body"> Tipo  </MyText>
-                <MyText type="body">{dateGroup.type}</MyText>
-            </View>
-            <View style={{ flexDirection: 'row' }}>
-                <MyText type="body"> Descripcion  </MyText>
-                <MyText type="body">{dateGroup.description}</MyText>
-            </View>
 
-            <VStack space={2} justifyContent="center" alignItems="center" safeAreaTop // my={6}
-                mb={6}>
-                {dateGroup?.pokemons?.map((e, i) => <Image key={i} size={"xl"} resizeMode="cover" source={{
-                    uri: e.image
-                }} alt={"Alternate Text " + e} />)}
-            </VStack>
+                <VStack space={2} justifyContent="center" alignItems="center" safeAreaTop // my={6}
+                    mb={6}>
+                    {dateGroup?.pokemons?.map((e, i) =>
+                        <Image key={i} size={"md"} resizeMode="cover" source={{
+                            uri: e.image
+                        }} alt={"Alternate Text " + e} />
+                    )}
+                </VStack>
 
+            </ScrollView>
         </View>
     )
 }

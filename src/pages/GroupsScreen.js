@@ -92,7 +92,7 @@ const GroupsScreen = () => {
     }
 
     return (
-        <View>
+        <View style={{ height: '100%' }}>
             <MyText type="title">Lista de Grupos: </MyText>
             <FlatList
                 data={groupData}
