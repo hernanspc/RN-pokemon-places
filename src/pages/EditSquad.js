@@ -51,6 +51,9 @@ const EditSquad = () => {
             .then(() => {
                 Alert.alert('Datos actualizados correctamente')
                 console.log('Data updated.')
+                navigation.navigate('GroupsScreen', {
+                    region: region,
+                })
             });
 
     }
