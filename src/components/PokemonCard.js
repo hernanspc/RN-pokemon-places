@@ -39,19 +39,16 @@ export const PokemonCard = ({ pokemon }) => {
     const handlePressPokemon = () => {
         setIsSelected(!isSelected)
         if (isSelected === true) {
-            console.log('tienes que borrar')
+            // console.log('tienes que borrar')
             dispatch(
                 deletePokemons(pokemon.id)
             )
         } else {
-            console.log('aca agregas');
+            // console.log('aca agregas');
             dispatch(
                 addPokemons(pokemon)
             )
         }
-
-
-
     }
 
     return (

@@ -25,7 +25,6 @@ export const usePokemonsSpecies = () => {
             return {
                 ...element,
                 id: id,
-                isSelected: false,
                 image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
             }
         })

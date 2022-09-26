@@ -1,4 +1,4 @@
-import { StyleSheet, Text, Button, View as ViewDefault, FlatList, ActivityIndicator, Alert } from 'react-native'
+import { StyleSheet, Text, Button, View as ViewDefault, FlatList, ActivityIndicator, Alert, TextInput } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { View } from '../themed/Themed'
@@ -16,34 +16,23 @@ const CreateSquadScreen = () => {
     const { top } = useSafeAreaInsets();
     const { simpleListPokemon, getList } = usePokemonsSpecies()
 
-    const [countSelect, setCountSelect] = useState(0)
-
+    const [name, setName] = useState('')
+    const [type, setType] = useState(null)
+    const [description, setDescription] = useState(null)
     const { pokemons } = useSelector(state => state.pokemon);
 
-    // const totalSelect = (count) => {
-    //     console.log('count ', count + 1)
-    //     // setCountSelect(count + 1)
-    // }
-
     const handleSave = () => {
-        totalSelect();
-        // count = count + 1;
-        // if (count < 3) {
-        //     Alert.alert('Por favor seleccione como mínimo 3 pokemones')
-        // } else if (count <= 6) {
-        //     console.log('IS ok')
-        // } else {
-        //     Alert.alert('No puede agregar mas de 6 pokemones')
-        // }
-        console.log('countSelect ', countSelect)
 
-        // database()
-        //     .ref('/users/123')
-        //     .set({
-        //         name: 'Ada Lovelace',
-        //         age: 31,
-        //     })
-        //     .then(() => console.log('Data set.'));
+        database()
+            .ref(`/grupo/region/${name}`)
+            .set({
+                type: type,
+                description: description,
+                pokemons: pokemons,
+                user: 'hernan',
+                time: Date(),
+            })
+            .then(() => console.log('Data set.'));
 
     }
 
@@ -51,18 +40,16 @@ const CreateSquadScreen = () => {
         console.log('handleCancel')
     }
 
-    // console.log('simpleListPokemon ', simpleListPokemon)
-
     useEffect(() => {
         navigation.setOptions({
             title: "Crea tu equipo",
             headerLargeTitle: true,
             headerRight: () => (
                 <View style={{ flexDirection: 'row' }}>
-                    <Button
+                    {/* <Button
                         onPress={handleSave}
                         title="Guardar"
-                    />
+                    /> */}
                     <Button
                         onPress={handleCancel}
                         title="Cancel"
@@ -72,26 +59,28 @@ const CreateSquadScreen = () => {
         });
     }, [navigation]);
 
-    const [name, setName] = useState(null)
-    const [type, setType] = useState(null)
-    const [description, setDescription] = useState(null)
-
     return (
         <View>
+            <MyInput label={'Nombre del Equipo :'} value={name}
+                onChangeText={setName} selectionColor={colors.light.backgroundMovistar} />
 
-            <MyInput label={'Nombre del Grupo :'} value={name} onChangeText={setName} selectionColor={colors.light.backgroundMovistar} />
+            <MyInput label={'Tipo :'} value={type} onChangeText={setType}
+                selectionColor={colors.light.backgroundMovistar} />
 
-            <MyInput label={'Tipo :'} value={type} onChangeText={setType} selectionColor={colors.light.backgroundMovistar} />
-
-            <MyInput label={'Pokedex descripción: '} value={description} onChangeText={setDescription} multiline selectionColor={colors.light.backgroundMovistar} />
+            <MyInput label={'Pokedex descripción: '} value={description}
+                onChangeText={setDescription} multiline selectionColor={colors.light.backgroundMovistar} />
 
             <ViewDefault style={{ flexDirection: 'row', display: 'flex', alignContent: 'center' }} >
 
                 <MyText type="caption" style={{ fontWeight: "bold" }}  > Pokemones seleccionados : </MyText>
 
-                <MyText type="caption" style={{ fontWeight: "bold", }}  >{countSelect}</MyText>
+                <MyText type="caption" style={{ fontWeight: "bold", }}  >{0}</MyText>
 
             </ViewDefault>
+            <Button
+                onPress={handleSave}
+                title="Guardar"
+            />
 
             <View
                 style={{ alignItems: 'center' }}
