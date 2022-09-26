@@ -9,61 +9,9 @@ import { View } from '../themed/Themed';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Lottie from 'lottie-react-native';
 
-const DATA = [
-    {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'First Item',
-    },
-    {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Second Item',
-    },
-    {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Third Item',
-    },
-];
-
-const DATA2 = [
-    {
-        "description": "Description",
-        "name": "Grupo 2",
-        "pokemons": [
-            [
-                "Object"
-            ],
-            [
-                "Object"
-            ],
-            [
-                "Object"
-            ]
-        ],
-        "time": "Mon Sep 26 2022 10:43:52 GMT-0500 (-05)",
-        "type": "Agua",
-        "user": "hernan"
-    },
-    {
-        "description": "Description",
-        "name": "Grupo 3",
-        "pokemons": [
-            [
-                "Object"
-            ],
-            [
-                "Object"
-            ],
-            [
-                "Object"
-            ]
-        ],
-        "time": "Mon Sep 26 2022 10:44:14 GMT-0500 (-05)",
-        "type": "Agua",
-        "user": "hernan"
-    }
-]
-
+const emptyGift = require('../assets/lotties/onboard/empty-file.json');
 
 const GroupsScreen = () => {
     const navigation = useNavigation();
@@ -145,7 +93,7 @@ const GroupsScreen = () => {
 
     return (
         <View>
-            <MyText type="body">Lista de Grupos  </MyText>
+            <MyText type="title">Lista de Grupos: </MyText>
             <FlatList
                 data={groupData}
                 renderItem={({ item, index }) => (
@@ -191,7 +139,18 @@ const GroupsScreen = () => {
                         </TouchableOpacity>
                     </View>
                 )}
-                // renderItem={renderItem}
+                ListEmptyComponent={
+                    <>
+                        <Text type="caption">Aun no hay registros...</Text>
+                        <Lottie autoPlay loop source={emptyGift}
+                            style={{
+                                width: '100%',
+                                // bottom: Platform.OS === 'android' ? '0%' : '0%',
+                                alignSelf: 'center',
+                            }}
+                        />
+                    </>
+                }
                 keyExtractor={(item, index) => index}
             />
         </View>
