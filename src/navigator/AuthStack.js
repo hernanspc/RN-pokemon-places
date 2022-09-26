@@ -10,11 +10,13 @@ const Auth = createStackNavigator();
 export default function AuthStack() {
 
   useEffect(() => {
-    GoogleSignin.configure({
-      webClientId: Platform === 'ios' ? '1076046321611-jfpk32941r7aom0fmdsc02otj4ld593s.apps.googleusercontent.com' : '1076046321611-09449lp6fhfd3gpslodmju6uioc143e5.apps.googleusercontent.com'
-      // webClientId: '1076046321611 - jfpk32941r7aom0fmdsc02otj4ld593s.apps.googleusercontent.com'
-      // webClientId: '1076046321611-09449lp6fhfd3gpslodmju6uioc143e5.apps.googleusercontent.com',
-    });
+    if (Platform === 'android') {
+      GoogleSignin.configure({
+        // webClientId: Platform === 'ios' ? '1076046321611-jfpk32941r7aom0fmdsc02otj4ld593s.apps.googleusercontent.com' : '1076046321611-09449lp6fhfd3gpslodmju6uioc143e5.apps.googleusercontent.com'
+        // webClientId: '1076046321611 - jfpk32941r7aom0fmdsc02otj4ld593s.apps.googleusercontent.com'
+        webClientId: '1076046321611-09449lp6fhfd3gpslodmju6uioc143e5.apps.googleusercontent.com',
+      });
+    }
 
   }, [])
 

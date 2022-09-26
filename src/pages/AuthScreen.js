@@ -60,6 +60,31 @@ const AuthScreen = () => {
         }
     }
 
+    const login = async (email, password) => {
+        try {
+            await auth().signInWithEmailAndPassword(email, password)
+                .then(() => {
+                    //Once the user creation has happened successfully, we can add the currentUser into firestore
+                    //with the appropriate details.
+                    // console.log('current User', auth().currentUser);
+                    firestore().collection('users').doc(auth().currentUser.uid)
+                        .set({
+                            fname: '',
+                            lname: '',
+                            email: auth().currentUser.email,
+                            createdAt: firestore.Timestamp.fromDate(new Date()),
+                            userImg: null,
+                        })
+                        //ensure we catch any errors at this stage to advise us if something does go wrong
+                        .catch(error => {
+                            console.log('Something went wrong with added user to firestore: ', error);
+                        })
+                })
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <View style={{
@@ -77,13 +102,42 @@ const AuthScreen = () => {
                 alignItems: 'center', justifyContent: 'center',
                 // backgroundColor: "#AABB90"
             }}>
-                <SocialButton
-                    buttonTitle="Sign In with Google"
-                    btnType="google"
-                    color="#de4d41"
-                    backgroundColor="#f5e7ea"
-                    onPress={handleSignIn}
-                />
+                {Platform === 'android' ? (
+                    <SocialButton
+                        buttonTitle="Sign In with Google"
+                        btnType="google"
+                        color="#de4d41"
+                        backgroundColor="#f5e7ea"
+                        onPress={handleSignIn}
+                    />
+                ) : (
+                    <>
+                        <FormInput
+                            labelValue={email}
+                            onChangeText={(userEmail) => setEmail(userEmail)}
+                            placeholderText="Email"
+                            iconType="user"
+                            keyboardType="email-address"
+                            autoCapitalize="none"
+                            autoCorrect={false}
+                        />
+
+                        <FormInput
+                            labelValue={password}
+                            onChangeText={(userPassword) => setPassword(userPassword)}
+                            placeholderText="Password"
+                            iconType="lock"
+                            secureTextEntry={true}
+                        />
+                        <FormButton
+                            buttonTitle="Sign In"
+                            onPress={() => login(email, password)}
+                        />
+
+                    </>
+                )
+                }
+
                 <Image
                     source={require('../assets/images/pokeball.gif')}
                     style={styles.img}
