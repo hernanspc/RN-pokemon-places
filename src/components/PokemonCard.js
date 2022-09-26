@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
 import ImageColors from 'react-native-image-colors'
 import { useDispatch, useSelector } from 'react-redux';
-import { addPokemons } from '../features/pokemon/pokemon.js';
+import { addPokemons, deletePokemons } from '../features/pokemon/pokemon.js';
 import { usePokemonsSpecies } from '../hook/usePokemonsSpecies.js';
 
 import { FadeInImage } from './FadeInImage.js';
@@ -38,10 +38,19 @@ export const PokemonCard = ({ pokemon }) => {
 
     const handlePressPokemon = () => {
         setIsSelected(!isSelected)
+        if (isSelected === true) {
+            console.log('tienes que borrar')
+            dispatch(
+                deletePokemons(pokemon.id)
+            )
+        } else {
+            console.log('aca agregas');
+            dispatch(
+                addPokemons(pokemon)
+            )
+        }
 
-        dispatch(
-            addPokemons(pokemon)
-        )
+
 
     }
 

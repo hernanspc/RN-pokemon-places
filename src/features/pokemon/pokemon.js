@@ -14,21 +14,15 @@ const authSlice = createSlice({
             state.pokemonItem = action.payload;
         },
         addPokemons: (state, action) => {
-            // console.log('length', state.pokemons.length)
-
-            // if (state.pokemons.length < 3) {
-            //     Alert.alert('Por favor seleccione como mínimo 3 pokemones')
-            // } else if (state.pokemons.length <= 6) {
-            //     state.pokemons.push(action.payload);
-            // } else {
-            //     Alert.alert('No puede agregar mas de 6 pokemones')
-            // }
             state.pokemons.push(action.payload);
-
+        },
+        deletePokemons: (state, action) => {
+            const index = state.pokemons?.findIndex(i => i.id === action.payload);
+            state.pokemons.splice(index, 1);
         },
     },
 });
 
-export const { selectItemPokemon, addPokemons } =
+export const { selectItemPokemon, addPokemons, deletePokemons } =
     authSlice.actions;
 export default authSlice.reducer;
