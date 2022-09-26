@@ -150,8 +150,8 @@ const GroupsScreen = () => {
                         // elevation: 6,
                         flexDirection: 'row'
                     }}>
-                        <View style={{ width: '40%', }}>
-                            <MyText style={{}}>id: {item}</MyText>
+                        <View style={{ width: '50%', }}>
+                            <MyText type="caption" >{item}</MyText>
                         </View>
                         <TouchableOpacity
                             onPress={() => handleInfoPoke(item)}
