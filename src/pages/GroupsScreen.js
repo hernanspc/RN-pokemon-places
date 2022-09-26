@@ -16,7 +16,7 @@ const GroupsScreen = () => {
 
     useEffect(() => {
         database()
-            .ref('/grupo/kanto')
+            .ref(`/grupo/${region}`)
             .once('value')
             .then(snapshot => {
                 console.log('User data: ', snapshot.val());
