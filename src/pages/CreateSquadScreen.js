@@ -102,13 +102,13 @@ const CreateSquadScreen = () => {
 
                 <MyText type="caption" style={{ fontWeight: "bold" }}  > Pokemones seleccionados : </MyText>
 
-                <MyText type="caption" style={{ fontWeight: "bold", }}  >{0}</MyText>
+                <MyText type="caption" style={{ fontWeight: "bold", }}  >{Object.keys(pokemons).length}</MyText>
 
             </ViewDefault>
 
             <Button
                 onPress={handleSave}
-                title="Crear equipo"
+                title="Agregar"
             />
 
             <Button
