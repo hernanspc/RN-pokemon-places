@@ -9,6 +9,7 @@ import { usePokemonsSpecies } from '../hook/usePokemonsSpecies';
 import { PokemonCard } from '../components/PokemonCard.js';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
+import database from '@react-native-firebase/database';
 
 const CreateSquadScreen = () => {
     const navigation = useNavigation();
@@ -26,14 +27,22 @@ const CreateSquadScreen = () => {
 
     const handleSave = () => {
         totalSelect();
-        // count = count + 1;
-        // if (count < 3) {
-        //     Alert.alert('Por favor seleccione como mínimo 3 pokemones')
-        // } else if (count <= 6) {
-        //     console.log('OKKKK')
-        // } else {
-        //     Alert.alert('No puede agregar mas de 6 pokemones')
-        // }
+        count = count + 1;
+        if (count < 3) {
+            Alert.alert('Por favor seleccione como mínimo 3 pokemones')
+        } else if (count <= 6) {
+            console.log('IS ok')
+        } else {
+            Alert.alert('No puede agregar mas de 6 pokemones')
+        }
+
+        // database()
+        //     .ref('/users/123')
+        //     .set({
+        //         name: 'Ada Lovelace',
+        //         age: 31,
+        //     })
+        //     .then(() => console.log('Data set.'));
 
     }
 
