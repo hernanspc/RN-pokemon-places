@@ -1,4 +1,4 @@
-import { StyleSheet, Text, Button, View as ViewDefault, FlatList, ActivityIndicator } from 'react-native'
+import { StyleSheet, Text, Button, View as ViewDefault, FlatList, ActivityIndicator, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { View } from '../themed/Themed'
@@ -8,14 +8,33 @@ import colors from '../constants/colors';
 import { usePokemonsSpecies } from '../hook/usePokemonsSpecies';
 import { PokemonCard } from '../components/PokemonCard.js';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useSelector } from 'react-redux';
 
 const CreateSquadScreen = () => {
     const navigation = useNavigation();
     const { top } = useSafeAreaInsets();
     const { simpleListPokemon, getList } = usePokemonsSpecies()
 
+    const [countSelect, setCountSelect] = useState(0)
+
+    const { pokemons } = useSelector(state => state.pokemon);
+
+    const totalSelect = (count) => {
+        console.log('count ', count + 1)
+        setCountSelect(count + 1)
+    }
+
     const handleSave = () => {
-        console.log('handleSave')
+        totalSelect();
+        // count = count + 1;
+        // if (count < 3) {
+        //     Alert.alert('Por favor seleccione como mínimo 3 pokemones')
+        // } else if (count <= 6) {
+        //     console.log('OKKKK')
+        // } else {
+        //     Alert.alert('No puede agregar mas de 6 pokemones')
+        // }
+
     }
 
     const handleCancel = () => {
@@ -60,7 +79,7 @@ const CreateSquadScreen = () => {
 
                 <MyText type="caption" style={{ fontWeight: "bold" }}  > Pokemones seleccionados : </MyText>
 
-                <MyText type="caption" style={{ fontWeight: "bold", }}  >0</MyText>
+                <MyText type="caption" style={{ fontWeight: "bold", }}  >{countSelect}</MyText>
 
             </ViewDefault>
 
@@ -87,7 +106,7 @@ const CreateSquadScreen = () => {
 
                     renderItem={({ item, index }) => (
                         // <Text>{index}</Text>
-                        <PokemonCard pokemon={item} />
+                        <PokemonCard pokemon={item} totalSelect={totalSelect} />
                     )}
 
                     // infinite scroll

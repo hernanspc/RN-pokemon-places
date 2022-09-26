@@ -13,7 +13,6 @@ export function RootNavigator() {
     const [initializing, setInitializing] = useState(true);
 
     const onAuthStateChanged = (user) => {
-        console.log('xxx', user)
 
         dispatch(
             setUserData(JSON.stringify(user))
