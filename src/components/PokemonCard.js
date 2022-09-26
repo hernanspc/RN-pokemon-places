@@ -10,7 +10,7 @@ import { FadeInImage } from './FadeInImage.js';
 
 const windowWidth = Dimensions.get('window').width
 
-export const PokemonCard = ({ pokemon, totalSelect }) => {
+export const PokemonCard = ({ pokemon }) => {
 
     const { changeStatus } = usePokemonsSpecies();
 
@@ -37,19 +37,19 @@ export const PokemonCard = ({ pokemon, totalSelect }) => {
     }, [])
 
     const handlePressPokemon = () => {
-        dispatch(
-            addPokemons(pokemon)
-        )
-
         setIsSelected(!isSelected)
-        totalSelect(pokemons.length)
+        // console.log('pokemon ', pokemons.length)
+
+        // dispatch(
+        //     addPokemons(pokemon)
+        // )
+
     }
 
     return (
         <TouchableOpacity
             activeOpacity={0.9}
             onPress={handlePressPokemon}
-        // disabled={true}
         >
             <View style={{
                 ...styles.cardContainer,

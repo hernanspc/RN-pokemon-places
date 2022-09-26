@@ -1,6 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, StatusBar } from 'react-native'
-import Animated from 'react-native-reanimated';
+import { StyleSheet, Text, View, Image, StatusBar, FlatList } from 'react-native'
 import ListRegion from '../components/ListRegion.js';
 import { useGetRegions } from '../hook/useGetRegions.js';
 import { SPACING, ITEM_SIZE } from '../utils/constants.js';
@@ -18,7 +17,7 @@ const Home = () => {
                 style={StyleSheet.absoluteFill}
                 blurRadius={3}
             />
-            <Animated.FlatList
+            <FlatList
                 data={simpleRegions}
                 keyExtractor={(item, index) => index}
                 contentContainerStyle={{ padding: SPACING, paddingTop: StatusBar.currentHeight || 20 }}

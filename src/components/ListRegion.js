@@ -2,7 +2,6 @@ import React from 'react'
 import { StyleSheet, Text, View, useColorScheme, Pressable, Image, TouchableOpacity } from 'react-native'
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Animated from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
 import colors from '../constants/colors';
 import { useDispatch } from 'react-redux';

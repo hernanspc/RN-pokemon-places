@@ -20,21 +20,22 @@ const CreateSquadScreen = () => {
 
     const { pokemons } = useSelector(state => state.pokemon);
 
-    const totalSelect = (count) => {
-        console.log('count ', count + 1)
-        setCountSelect(count + 1)
-    }
+    // const totalSelect = (count) => {
+    //     console.log('count ', count + 1)
+    //     // setCountSelect(count + 1)
+    // }
 
     const handleSave = () => {
         totalSelect();
-        count = count + 1;
-        if (count < 3) {
-            Alert.alert('Por favor seleccione como mínimo 3 pokemones')
-        } else if (count <= 6) {
-            console.log('IS ok')
-        } else {
-            Alert.alert('No puede agregar mas de 6 pokemones')
-        }
+        // count = count + 1;
+        // if (count < 3) {
+        //     Alert.alert('Por favor seleccione como mínimo 3 pokemones')
+        // } else if (count <= 6) {
+        //     console.log('IS ok')
+        // } else {
+        //     Alert.alert('No puede agregar mas de 6 pokemones')
+        // }
+        console.log('countSelect ', countSelect)
 
         // database()
         //     .ref('/users/123')
@@ -115,7 +116,9 @@ const CreateSquadScreen = () => {
 
                     renderItem={({ item, index }) => (
                         // <Text>{index}</Text>
-                        <PokemonCard pokemon={item} totalSelect={totalSelect} />
+                        <PokemonCard pokemon={item}
+                        // totalSelect={totalSelect}
+                        />
                     )}
 
                     // infinite scroll
