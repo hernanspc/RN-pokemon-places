@@ -9,7 +9,7 @@ const GroupsScreen = () => {
     const { params } = route;
 
     const handleCreate = () => {
-        navigation.navigate('CreateSquadScreen')
+        navigation.navigate('CreateSquadScreen', { region: params?.name })
     }
 
     useEffect(() => {

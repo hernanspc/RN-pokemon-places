@@ -1,6 +1,6 @@
 import { StyleSheet, Text, Button, View as ViewDefault, FlatList, ActivityIndicator, Alert, TextInput } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { View } from '../themed/Themed'
 import MyText from '../components/MyText';
 import MyInput from '../components/MyInput';
@@ -13,6 +13,10 @@ import database from '@react-native-firebase/database';
 
 const CreateSquadScreen = () => {
     const navigation = useNavigation();
+    const route = useRoute();
+    const { params } = route;
+    const { region } = params;
+
     const { top } = useSafeAreaInsets();
     const { simpleListPokemon, getList } = usePokemonsSpecies()
 
@@ -24,8 +28,9 @@ const CreateSquadScreen = () => {
     const handleSave = () => {
 
         database()
-            .ref(`/grupo/region/${name}`)
+            .ref(`/grupo/${region}/${name}`)
             .set({
+                name: name,
                 type: type,
                 description: description,
                 pokemons: pokemons,
