@@ -8,11 +8,13 @@ import colors from '../constants/colors';
 import { usePokemonsSpecies } from '../hook/usePokemonsSpecies';
 import { PokemonCard } from '../components/PokemonCard.js';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import database from '@react-native-firebase/database';
+import { deleteAllPokemons } from '../features/pokemon/pokemon';
 
 const CreateSquadScreen = () => {
     const navigation = useNavigation();
+    const dispatch = useDispatch();
     const route = useRoute();
     const { params } = route;
     const { region } = params;
@@ -25,9 +27,8 @@ const CreateSquadScreen = () => {
     const [description, setDescription] = useState(null)
     const { pokemons } = useSelector(state => state.pokemon);
 
-    const handleSave = () => {
-
-        database()
+    const handleSave = async () => {
+        await database()
             .ref(`/grupo/${region}/${name}`)
             .set({
                 name: name,
@@ -38,7 +39,7 @@ const CreateSquadScreen = () => {
                 time: Date(),
             })
             .then(() => console.log('Data set.'));
-
+        dispatch(deleteAllPokemons())
     }
 
     const handleCancel = () => {

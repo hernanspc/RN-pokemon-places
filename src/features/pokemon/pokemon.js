@@ -20,9 +20,12 @@ const authSlice = createSlice({
             const index = state.pokemons?.findIndex(i => i.id === action.payload);
             state.pokemons.splice(index, 1);
         },
+        deleteAllPokemons: (state) => {
+            state.pokemons.splice(0);
+        },
     },
 });
 
-export const { selectItemPokemon, addPokemons, deletePokemons } =
+export const { selectItemPokemon, addPokemons, deletePokemons, deleteAllPokemons } =
     authSlice.actions;
 export default authSlice.reducer;
