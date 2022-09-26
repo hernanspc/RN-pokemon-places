@@ -14,6 +14,7 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B0154313696BF193C6979874 /* libPods-AppIndicadores-AppIndicadoresTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C46DABECDCB96173FA16CFD3 /* libPods-AppIndicadores-AppIndicadoresTests.a */; };
 		B472829E94BCAD9BB5B3783B /* libPods-AppIndicadores.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 460739CF620CA0182F4992CB /* libPods-AppIndicadores.a */; };
+		F06F827628E258CB00324AE6 /* pokemongo.png in Resources */ = {isa = PBXBuildFile; fileRef = F06F827528E258CB00324AE6 /* pokemongo.png */; };
 		F0BA859728DFAC0600121BF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0BA859628DFAC0600121BF2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		C46DABECDCB96173FA16CFD3 /* libPods-AppIndicadores-AppIndicadoresTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppIndicadores-AppIndicadoresTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED12B9844C2E4937B4D769E6 /* Pods-AppIndicadores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppIndicadores.release.xcconfig"; path = "Target Support Files/Pods-AppIndicadores/Pods-AppIndicadores.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F06F827528E258CB00324AE6 /* pokemongo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokemongo.png; sourceTree = "<group>"; };
 		F0BA859628DFAC0600121BF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				F06F827528E258CB00324AE6 /* pokemongo.png */,
 			);
 			name = AppIndicadores;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				F0BA859728DFAC0600121BF2 /* GoogleService-Info.plist in Resources */,
+				F06F827628E258CB00324AE6 /* pokemongo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

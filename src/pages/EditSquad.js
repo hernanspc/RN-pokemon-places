@@ -27,12 +27,12 @@ const EditSquad = () => {
         await database()
             .ref(`/grupo/${region}/${group}`)
             .on('value', snapshot => {
-                setInfo(snapshot?.val())
-
-                setName(snapshot?.val().name)
-                setType(snapshot?.val().type)
-                setDescription(snapshot?.val().description)
-
+                if (snapshot) {
+                    setInfo(snapshot?.val())
+                    setName(snapshot?.val().name)
+                    setType(snapshot?.val().type)
+                    setDescription(snapshot?.val().description)
+                }
             })
     }
 
