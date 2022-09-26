@@ -50,20 +50,20 @@ const InfoGroup = () => {
             <ScrollView style={{ height: '100%' }}>
 
                 <View style={{ flexDirection: 'row' }}>
-                    <MyText type="body"> Nombre  </MyText>
+                    <MyText type="body"> Nombre : </MyText>
                     <MyText type="body">{dateGroup.name}</MyText>
                 </View>
 
                 <View style={{ flexDirection: 'row' }}>
-                    <MyText type="body"> Numero  </MyText>
+                    <MyText type="body"> Numero : </MyText>
                     <MyText type="body">{countPoke}</MyText>
                 </View>
                 <View style={{ flexDirection: 'row' }}>
-                    <MyText type="body"> Tipo  </MyText>
+                    <MyText type="body"> Tipo : </MyText>
                     <MyText type="body">{dateGroup.type}</MyText>
                 </View>
                 <View style={{ flexDirection: 'row' }}>
-                    <MyText type="body"> Descripcion  </MyText>
+                    <MyText type="body"> Descripción : </MyText>
                     <MyText type="body">{dateGroup.description}</MyText>
                 </View>
 
