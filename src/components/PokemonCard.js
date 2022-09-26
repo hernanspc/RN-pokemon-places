@@ -38,11 +38,10 @@ export const PokemonCard = ({ pokemon }) => {
 
     const handlePressPokemon = () => {
         setIsSelected(!isSelected)
-        // console.log('pokemon ', pokemons.length)
 
-        // dispatch(
-        //     addPokemons(pokemon)
-        // )
+        dispatch(
+            addPokemons(pokemon)
+        )
 
     }
 
