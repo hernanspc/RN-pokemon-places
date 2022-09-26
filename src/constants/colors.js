@@ -1,6 +1,6 @@
 
 const tintColorLight = "#2f95dc";
-const tintColorIos = "#0078fd";
+export const tintColorIos = "#0078fd";
 const tintColorDark = "#E7E7E7";
 
 const tintErrorColorLight = "#F74343";

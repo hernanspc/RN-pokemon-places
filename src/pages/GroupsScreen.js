@@ -4,8 +4,11 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { capitalizar } from '../utils/function';
 import database from '@react-native-firebase/database';
 import MyText from '../components/MyText';
-import colors from '../constants/colors';
+import colors, { tintColorIos } from '../constants/colors';
 import { View } from '../themed/Themed';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Feather from 'react-native-vector-icons/Feather';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const DATA = [
     {
@@ -120,32 +123,39 @@ const GroupsScreen = () => {
             <FlatList
                 data={groupData}
                 renderItem={({ item, index }) => (
-                    <TouchableOpacity
-                        onPress={() => handleInfoPoke(item)}
-                    >
-                        <View style={{
-                            display: 'flex',
-                            width: '100%',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            height: 50,
-                            marginVertical: 10,
-                            borderRadius: 40,
-                            // backgroundColor: 'red',
-                            shadowColor: "#000",
-                            shadowOffset: {
-                                width: 0,
-                                height: 3,
-                            },
-                            shadowOpacity: 0.27,
-                            shadowRadius: 4.65,
 
-                            elevation: 6,
+                    <View style={{
+                        display: 'flex',
+                        width: '100%',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        height: 50,
+                        marginVertical: 20,
+                        borderRadius: 10,
+                        // backgroundColor: 'red',
+                        shadowColor: "#000",
+                        shadowOffset: {
+                            width: 0,
+                            height: 3,
+                        },
+                        shadowOpacity: 0.27,
+                        shadowRadius: 4.65,
 
-                        }}>
+                        // elevation: 6,
+                        flexDirection: 'row'
+                    }}>
+                        <View style={{ width: '40%', backgroundColor: 'orange' }}>
                             <MyText style={{}}>{item}</MyText>
                         </View>
-                    </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => handleInfoPoke(item)}
+                        >
+                            <MaterialIcons style={{ marginHorizontal: 20, backgroundColor: 'red' }} name="info-outline" size={24} color={tintColorIos} />
+                        </TouchableOpacity>
+
+                        <Feather style={{ marginHorizontal: 20, backgroundColor: 'green' }} name="edit" size={24} color={tintColorIos} />
+                        <MaterialCommunityIcons style={{ marginHorizontal: 20, backgroundColor: 'pink' }} name="delete-outline" size={24} color={tintColorIos} />
+                    </View>
                 )}
                 // renderItem={renderItem}
                 keyExtractor={(item, index) => index}

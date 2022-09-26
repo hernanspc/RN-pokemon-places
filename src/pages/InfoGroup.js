@@ -46,12 +46,13 @@ const InfoGroup = () => {
 
     return (
         <View>
-            <Button title="Editar " onPress={() =>
-                console.log('editar')
+            {/* <Button title="Editar " onPress={() =>
+                navigation.navigate('EditSquad', { region: region, group: group })
+
             } />
             <Button title="Eliminar " onPress={() =>
                 console.log('eliminar')
-            } />
+            } /> */}
 
             <View style={{ flexDirection: 'row' }}>
                 <MyText type="body"> Nombre  </MyText>
