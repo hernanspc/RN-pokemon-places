@@ -11,6 +11,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux';
 import database from '@react-native-firebase/database';
 import { deleteAllPokemons } from '../features/pokemon/pokemon';
+import { HStack } from 'native-base'
 
 const CreateSquadScreen = () => {
     const navigation = useNavigation();
@@ -106,15 +107,16 @@ const CreateSquadScreen = () => {
 
             </ViewDefault>
 
-            <Button
-                onPress={handleSave}
-                title="Agregar"
-            />
-
-            <Button
-                onPress={handleCancel}
-                title="Cancel"
-            />
+            <HStack space={3} justifyContent="center">
+                <Button
+                    onPress={handleSave}
+                    title="Agregar"
+                />
+                <Button
+                    onPress={handleCancel}
+                    title="Cancel"
+                />
+            </HStack>
 
             <View
                 style={{ alignItems: 'center' }}
