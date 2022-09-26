@@ -31,7 +31,7 @@ const CreateSquadScreen = () => {
 
     const handleSave = async () => {
         await database()
-            .ref(`/grupo/${region}/${name}`)
+            .ref(`/grupo/${region}/${Date.now()}`)
             .set({
                 name: name,
                 type: type,

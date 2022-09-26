@@ -71,6 +71,7 @@ const GroupsScreen = () => {
     const { params } = route;
     const { region } = params;
     const [groupData, setGroupData] = useState([])
+    const [nameGroup, setNameGroup] = useState('')
     const [loading, setLoading] = useState(false)
 
     const handleCreate = () => {
@@ -84,6 +85,7 @@ const GroupsScreen = () => {
                 setLoading(false)
                 if (snapshot?.val()) {
                     setGroupData(Object?.keys(snapshot?.val()))
+
                 } else {
                     return
                 }
@@ -111,6 +113,10 @@ const GroupsScreen = () => {
 
     const handleInfoPoke = (item) => {
         navigation.navigate('InfoGroup', { region: region, group: item })
+    }
+
+    const handleEditPoke = (item) => {
+        navigation.navigate('EditSquad', { region: region, group: item })
     }
 
     if (loading) {
@@ -144,17 +150,21 @@ const GroupsScreen = () => {
                         // elevation: 6,
                         flexDirection: 'row'
                     }}>
-                        <View style={{ width: '40%', backgroundColor: 'orange' }}>
-                            <MyText style={{}}>{item}</MyText>
+                        <View style={{ width: '40%', }}>
+                            <MyText style={{}}>id: {item}</MyText>
                         </View>
                         <TouchableOpacity
                             onPress={() => handleInfoPoke(item)}
                         >
-                            <MaterialIcons style={{ marginHorizontal: 20, backgroundColor: 'red' }} name="info-outline" size={24} color={tintColorIos} />
+                            <MaterialIcons style={{ marginHorizontal: 20, }} name="info-outline" size={30} color={tintColorIos} />
                         </TouchableOpacity>
 
-                        <Feather style={{ marginHorizontal: 20, backgroundColor: 'green' }} name="edit" size={24} color={tintColorIos} />
-                        <MaterialCommunityIcons style={{ marginHorizontal: 20, backgroundColor: 'pink' }} name="delete-outline" size={24} color={tintColorIos} />
+                        <TouchableOpacity
+                            onPress={() => handleEditPoke(item)}
+                        >
+                            <Feather style={{ marginHorizontal: 20, }} name="edit" size={30} color={tintColorIos} />
+                        </TouchableOpacity>
+                        <MaterialCommunityIcons style={{ marginHorizontal: 20, }} name="delete-outline" size={30} color={tintColorIos} />
                     </View>
                 )}
                 // renderItem={renderItem}
