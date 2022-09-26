@@ -33,17 +33,6 @@ export const usePokemonsSpecies = () => {
         setIsLoading(false);
     }
 
-    const changeStatus = (id) => {
-        // console.log('id ', simpleListPokemon[id])
-        const ab = simpleListPokemon.filter(value => value.id === id)
-        ab.map(e => { e.isSelected = true }
-            // console.log('value ', value)
-        )
-
-
-
-    }
-
     useEffect(() => {
         getList();
     }, [])
@@ -52,6 +41,5 @@ export const usePokemonsSpecies = () => {
         simpleListPokemon,
         isLoading,
         getList,
-        changeStatus
     }
 }

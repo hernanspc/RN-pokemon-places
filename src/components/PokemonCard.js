@@ -4,7 +4,6 @@ import { Text, View, TouchableOpacity, StyleSheet, Dimensions, Image } from 'rea
 import ImageColors from 'react-native-image-colors'
 import { useDispatch, useSelector } from 'react-redux';
 import { addPokemons, deletePokemons } from '../features/pokemon/pokemon.js';
-import { usePokemonsSpecies } from '../hook/usePokemonsSpecies.js';
 
 import { FadeInImage } from './FadeInImage.js';
 
@@ -12,10 +11,6 @@ const windowWidth = Dimensions.get('window').width
 
 export const PokemonCard = ({ pokemon }) => {
 
-    const { changeStatus } = usePokemonsSpecies();
-
-    const { pokemons } = useSelector(state => state.pokemon);
-    // console.log('pokemons ', pokemons.length)
     const [isSelected, setIsSelected] = useState(false)
 
     const [bgColor, setBgColor] = useState('grey');
@@ -63,7 +58,6 @@ export const PokemonCard = ({ pokemon }) => {
                 width: windowWidth * 0.4,
                 backgroundColor: bgColor
             }}>
-                {/* Nombre del pokemon y ID */}
                 <View>
                     <Text style={styles.name}>
                         {pokemon.name}
@@ -78,15 +72,14 @@ export const PokemonCard = ({ pokemon }) => {
                     />
                 </View>
 
-                {/* <FadeInImage
+                <FadeInImage
                     uri={pokemon.image}
                     style={styles.pokemonImage}
-                /> */}
-                <Image
+                />
+                {/* <Image
                     source={{ uri: pokemon.image }}
                     style={styles.pokemonImage}
-                />
-
+                /> */}
             </View>
         </TouchableOpacity>
     )
