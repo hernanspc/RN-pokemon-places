@@ -26,6 +26,8 @@ const CreateSquadScreen = () => {
     const [type, setType] = useState(null)
     const [description, setDescription] = useState(null)
     const { pokemons } = useSelector(state => state.pokemon);
+    const { userToken } = useSelector(state => state.auth);
+
 
     const handleSave = async () => {
         await database()
@@ -35,7 +37,7 @@ const CreateSquadScreen = () => {
                 type: type,
                 description: description,
                 pokemons: pokemons,
-                user: 'hernan',
+                user: userToken,
                 time: Date(),
             })
             .then(() => console.log('Data set.'));
