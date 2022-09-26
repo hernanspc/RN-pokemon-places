@@ -1,8 +1,11 @@
-import { StyleSheet, Text, View, Button, FlatList, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View as ViewDefault, Button, FlatList, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { capitalizar } from '../utils/function';
 import database from '@react-native-firebase/database';
+import MyText from '../components/MyText';
+import colors from '../constants/colors';
+import { View } from '../themed/Themed';
 
 const DATA = [
     {
@@ -65,6 +68,7 @@ const GroupsScreen = () => {
     const { params } = route;
     const { region } = params;
     const [groupData, setGroupData] = useState([])
+    const [loading, setLoading] = useState(false)
 
     const handleCreate = () => {
         navigation.navigate('CreateSquadScreen', { region: region })
@@ -74,11 +78,18 @@ const GroupsScreen = () => {
         await database()
             .ref(`/grupo/${region}`)
             .on('value', snapshot => {
-                setGroupData(Object?.keys(snapshot?.val()))
+                setLoading(false)
+                if (snapshot?.val()) {
+                    setGroupData(Object?.keys(snapshot?.val()))
+                } else {
+                    return
+                }
+
             })
     }
 
     useEffect(() => {
+        setLoading(true)
         getInfo();
     }, [])
 
@@ -99,18 +110,42 @@ const GroupsScreen = () => {
         navigation.navigate('InfoGroup', { region: region, group: item })
     }
 
+    if (loading) {
+        return <MyText type="title"> Cargando Grupos...  </MyText>
+    }
+
     return (
         <View>
-            <Text>Lista de los grupos </Text>
+            <MyText type="body">Lista de Grupos  </MyText>
             <FlatList
                 data={groupData}
                 renderItem={({ item, index }) => (
                     <TouchableOpacity
                         onPress={() => handleInfoPoke(item)}
                     >
-                        <Text>{item}</Text>
-                    </TouchableOpacity>
+                        <View style={{
+                            display: 'flex',
+                            width: '100%',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            height: 50,
+                            marginVertical: 10,
+                            borderRadius: 40,
+                            // backgroundColor: 'red',
+                            shadowColor: "#000",
+                            shadowOffset: {
+                                width: 0,
+                                height: 3,
+                            },
+                            shadowOpacity: 0.27,
+                            shadowRadius: 4.65,
 
+                            elevation: 6,
+
+                        }}>
+                            <MyText style={{}}>{item}</MyText>
+                        </View>
+                    </TouchableOpacity>
                 )}
                 // renderItem={renderItem}
                 keyExtractor={(item, index) => index}
