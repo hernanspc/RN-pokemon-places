@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View as ViewDefault } from 'react-native'
+import { StyleSheet, Text, View as ViewDefault, Button } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import database from '@react-native-firebase/database';
@@ -46,6 +46,13 @@ const InfoGroup = () => {
 
     return (
         <View>
+            <Button title="Editar " onPress={() =>
+                console.log('editar')
+            } />
+            <Button title="Eliminar " onPress={() =>
+                console.log('eliminar')
+            } />
+
             <View style={{ flexDirection: 'row' }}>
                 <MyText type="body"> Nombre  </MyText>
                 <MyText type="body">{dateGroup.name}</MyText>

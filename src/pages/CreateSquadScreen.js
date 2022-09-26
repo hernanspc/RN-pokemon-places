@@ -60,10 +60,7 @@ const CreateSquadScreen = () => {
                         onPress={handleSave}
                         title="Guardar"
                     /> */}
-                    <Button
-                        onPress={handleCancel}
-                        title="Cancel"
-                    />
+
                 </View>
             ),
         });
@@ -87,9 +84,15 @@ const CreateSquadScreen = () => {
                 <MyText type="caption" style={{ fontWeight: "bold", }}  >{0}</MyText>
 
             </ViewDefault>
+
             <Button
                 onPress={handleSave}
-                title="Guardar"
+                title="Crear equipo"
+            />
+
+            <Button
+                onPress={handleCancel}
+                title="Cancel"
             />
 
             <View
