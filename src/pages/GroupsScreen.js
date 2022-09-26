@@ -75,9 +75,6 @@ const GroupsScreen = () => {
             .ref(`/grupo/${region}`)
             .on('value', snapshot => {
                 setGroupData(Object?.keys(snapshot?.val()))
-                // Object?.keys(snapshot?.val()).map(val => {
-
-                // })
             })
     }
 
