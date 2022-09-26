@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View as ViewDefault, Button, FlatList, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View as ViewDefault, Button, FlatList, TouchableOpacity, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { capitalizar } from '../utils/function';
@@ -119,6 +119,30 @@ const GroupsScreen = () => {
         navigation.navigate('EditSquad', { region: region, group: item })
     }
 
+    const handleEditGroup = (item) => {
+        Alert.alert(
+            "Alerta",
+            "Realmente desea eliminar?",
+            [
+                {
+                    text: "Cancel",
+                    onPress: () => console.log("Cancel Pressed"),
+                    style: "cancel"
+                },
+                {
+                    text: "OK", onPress: async () => {
+                        await database().ref(`/grupo/${region}/${item}`).remove()
+                    },
+                    style: "destructive"
+                }
+            ]
+        );
+
+
+
+
+    }
+
     if (loading) {
         return <MyText type="title"> Cargando Grupos...  </MyText>
     }
@@ -164,7 +188,11 @@ const GroupsScreen = () => {
                         >
                             <Feather style={{ marginHorizontal: 20, }} name="edit" size={30} color={tintColorIos} />
                         </TouchableOpacity>
-                        <MaterialCommunityIcons style={{ marginHorizontal: 20, }} name="delete-outline" size={30} color={tintColorIos} />
+                        <TouchableOpacity
+                            onPress={() => handleEditGroup(item)}
+                        >
+                            <MaterialCommunityIcons style={{ marginHorizontal: 20, }} name="delete-outline" size={30} color={tintColorIos} />
+                        </TouchableOpacity>
                     </View>
                 )}
                 // renderItem={renderItem}
