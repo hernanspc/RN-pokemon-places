@@ -61,5 +61,9 @@ pod install
     
 ## Descargá la App 📎
 
- 
+
+<p style={{padding:10}} align="center">
+<img src="https://github.com/hernanspc/RN-pokemon-places/blob/main/src/assets/screenshots/shot1.png" width="400"> 
+
+</p>
  
