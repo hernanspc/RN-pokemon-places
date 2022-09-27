@@ -102,7 +102,7 @@ const AuthScreen = () => {
                 alignItems: 'center', justifyContent: 'center',
                 // backgroundColor: "#AABB90"
             }}>
-                {Platform === 'android' ? (
+                {Platform.OS === 'android' ? (
                     <SocialButton
                         buttonTitle="Sign In with Google"
                         btnType="google"
@@ -112,6 +112,7 @@ const AuthScreen = () => {
                     />
                 ) : (
                     <>
+
                         <FormInput
                             labelValue={email}
                             onChangeText={(userEmail) => setEmail(userEmail)}

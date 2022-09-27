@@ -136,9 +136,7 @@ const CreateSquadScreen = () => {
                 )}
 
                 renderItem={({ item, index }) => (
-                    <PokemonCard pokemon={item}
-                    // totalSelect={totalSelect}
-                    />
+                    <PokemonCard pokemon={item} />
                 )}
 
                 // infinite scroll
