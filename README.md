@@ -59,6 +59,15 @@ pod install
     yarn ios --simulator="iPhone 12"
     ```
     
+    
+#### INGRESAR AL APP IOS
+
+user: luis@gmail.com
+password: 123456
+
+#### INGRESAR AL APP ANDROID
+*ingrese con credenciales de gmail
+    
 ## Descargá la App 📎
 
 
